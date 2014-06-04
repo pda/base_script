@@ -1,3 +1,3 @@
-module BaseScript
-  VERSION = "1.0.0"
+class BaseScript
+  VERSION = "1.0.1"
 end
