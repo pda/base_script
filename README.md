@@ -1,24 +1,49 @@
 # BaseScript
 
-TODO: Write a gem description
+Small base for CLI scripts; signal handling, indented logging, colors
+ticks/crosses, injectable args/IO.
+
+It was kicking around the `lib/` directory of various Rails projects I've
+built. Now it's a gem with a [version number][semver].
+
 
 ## Installation
 
-Add this line to your application's Gemfile:
+With bundler:
 
-    gem 'base_script'
-
-And then execute:
-
+    $ echo 'gem "base_script"' >> Gemfile
     $ bundle
 
-Or install it yourself as:
+Manually:
 
     $ gem install base_script
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require "base_script"
+
+class HelloScript < BaseScript
+
+  def run
+    if arg("lunar")
+      log "hello moon"
+    else
+      log "hello world"
+    end
+
+    log "Doing some work, ctrl-c to cleanly interrupt.."
+    indented do
+      100.times do |i|
+        exit_on_signals
+        vlog "Step #{i}"
+        do_some_work() unless dry?
+      end
+    end
+  end
+
+end
+```
 
 ## Contributing
 
@@ -27,3 +52,9 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+Author: [Paul Annesley][pda]
+
+
+[semver]: http://semver.org/
+[pda]: https://twitter.com/pda

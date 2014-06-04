@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in base_script.gemspec
+# See: base_script.gemspec
 gemspec

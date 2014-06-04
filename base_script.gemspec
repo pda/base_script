@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = BaseScript::VERSION
   spec.authors       = ["Paul Annesley"]
   spec.email         = ["paul@annesley.cc"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{CLI script simple base class.}
+  spec.description   = %q{Small base for CLI scripts; signal handling, indented logging, colors ticks/crosses, injectable args/IO.}
+  spec.homepage      = "https://github.com/pda/base_script"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
