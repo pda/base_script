@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require "base_script/version"
 
 # A base class for implementing CLI scripts.
@@ -59,7 +60,6 @@ class BaseScript
     end
   end
 
-  def dry?; arg("dry-run") end
   def verbose?; arg("v") end
 
   ##
@@ -127,6 +127,20 @@ class BaseScript
         @_signal = signal
         Signal.trap(signal, @_previous_signal_handlers[signal])
       end
+    end
+  end
+
+  ##
+  # Dry run support
+
+  def dry?; arg("dry-run") end
+
+  # Execute block unless dry run
+  def unless_dry_run(message)
+    if dry?
+      log "Skipping #{message} due to dry run"
+    else
+      yield
     end
   end
 
