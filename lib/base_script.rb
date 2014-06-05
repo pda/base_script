@@ -140,6 +140,7 @@ class BaseScript
     if dry?
       log "Skipping #{message} due to dry run"
     else
+      vlog message
       yield
     end
   end
