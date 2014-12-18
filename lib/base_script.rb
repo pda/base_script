@@ -60,7 +60,9 @@ class BaseScript
     end
   end
 
-  def verbose?; arg("v") end
+  def verbose?
+    arg("v") || arg("verbose")
+  end
 
   ##
   # Logging.
