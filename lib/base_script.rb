@@ -140,7 +140,7 @@ class BaseScript
   # Execute block unless dry run
   def unless_dry_run(message)
     if dry?
-      log "Skipping #{message} due to dry run"
+      vlog "Skipping due to dry run: #{message}"
     else
       vlog message
       yield
